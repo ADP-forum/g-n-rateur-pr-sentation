@@ -1,2 +1,2 @@
-# g-n-rateur-pr-sentation
+# Générateur de fiche de présentation forum rpg
 générateur de fiche de présentation
