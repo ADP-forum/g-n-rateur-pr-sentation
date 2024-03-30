@@ -18,9 +18,7 @@ Faciliter la création de fiches de présentation pour les utilisateurs moins à
 2. **Intégration via Iframe :**
    - Copiez l'URL de votre nouvelle page HTML.
    - Ouvrez un nouveau sujet dans votre forum et insérez l'URL dans un iframe :
-     \```html
-     <iframe src="https://nomduforum.com/h4-generateur-de-presentation" height="800px" width="100%" frameborder="0" scrolling="yes"></iframe>
-     \```
+     ```<iframe src="https://nomduforum.com/h4-generateur-de-presentation" height="800px" width="100%" frameborder="0" scrolling="yes"></iframe>```
 
 Vous devriez maintenant avoir le formulaire qui s’affiche et la possibilité de générer le code de la fiche de présentation par défaut présent dans le tutoriel. 
 
@@ -29,19 +27,19 @@ Vous devriez maintenant avoir le formulaire qui s’affiche et la possibilité d
 Pour modifier ou ajouter des champs dans le formulaire, localisez les éléments `<input>`, `<textarea>`, et `<select>` dans le code HTML.
 
 - **Pour un champ de texte court :**
-  \```html
+  ```html
   <label for="nomPersonnage">Nom du Personnage :</label>
   <input type="text" id="nomPersonnage" name="nomPersonnage">
-  \```
+  ```
 
 - **Pour un champ de texte long :**
-  \```html
+  ```html
   <label for="histoire">Histoire du personnage :</label>
   <textarea id="histoire" name="histoire"></textarea>
-  \```
+  ```
 
 - **Pour un menu déroulant :**
-  \```html
+  ```html
   <label for="groupe">Groupe :</label>
   <select id="groupe" name="groupe">
     <option value="">Choisir le groupe</option>
@@ -50,7 +48,7 @@ Pour modifier ou ajouter des champs dans le formulaire, localisez les éléments
     <option value="Groupe3">Groupe 3</option>
     <option value="Groupe4">Groupe 4</option>
   </select>
-  \```
+  ```
 
 Changez l'attribut `for` du `<label>` et les attributs `id` et `name` de l'`<input>` pour refléter le contenu souhaité. 
 
@@ -61,23 +59,23 @@ Le label sera ce qui sera visuellement affiché dans votre formulaire. Vous pouv
 Dans le script JavaScript, chaque champ du formulaire est associé à une variable récupérée par la fonction `genererCode()`. Nommez les variables en fonction de l'`id` des champs pour faciliter la correspondance. Dans cette fonction il se trouve autant de variables que de champs dans le formulaire. 
 
 - **Exemple de fonction :**
-  \```javascript
+  ```javascript
   function genererCode() {     
     var prenomNom = document.getElementById('prenomNom').value;
     var citation = document.getElementById('citation').value;
     // Suite du code...
   }
-  \```
+  ```
 
 Prenons l’exemple du prenomNom. On nomme la variable prenomNom. Ce code va rechercher l’id prenomNom présent dans le formulaire et récupérer la valeur inscrite dans le champ pour ensuite la placer dans votre code de présentation.
 
 Pour cela il faudra vous rendre ici : 
 
-  \```javascript
+  ```javascript
     var codeGenere = `<div class="fiche">
 <span>${prenomNom}</span>
 <span>${citation}</span>
-  \```
+  ```
   
 Ce bout de code est l’emplacement où vous aller coller votre code de fiche de présentation. 
 
