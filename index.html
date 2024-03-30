@@ -1,0 +1,269 @@
+<!-- A placer dans une nouvelle page html dans le panneau administrateur -->
+
+<!-- Première partie du code : HTML du formulaire permettant de générer le code de la fiche de présentation -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Formulaire de Génération de Code</title>
+</head>
+
+<body>
+  <!-- début du formulaire -->
+  <form id="formGenerateur">
+    <center>
+      <h1>Formulaire de présentation</h1>
+      <hr style="margin: 20px 0;">
+    </center>
+
+    <div class="box" style="padding: 20px;">
+
+      <h2>Première partie</h2>
+
+      <!-- champ du formulaire - champ pour texte court -->
+      <label for="triggerWarnings">Trigger Warnings :</label>
+      <input type="text" id="triggerWarnings" name="triggerWarnings">
+      <!-- fin du champ -->
+
+      <label for="prenomNom">Prénom Nom :</label>
+      <input type="text" id="prenomNom" name="prenomNom">
+
+      <label for="citation">Citation :</label>
+      <input type="text" id="citation" name="citation">
+
+      <!-- champs du formulaire permettant l'ajout de l'url de l'avatar -->
+      <label for="avatarcélébrite">Url de l'avatar de la célébrité :</label>
+      <input type="text" id="avatarCelebrite" name="avatarCelebrite">
+      <!-- fin du champ -->
+
+      <label for="age">Age :</label>
+      <input type="text" id="age" name="age">
+
+      <label for="dateNaissance">Date de Naissance :</label>
+      <input type="text" id="dateNaissance" name="dateNaissance">
+
+      <label for="lieuNaissance">Lieu de Naissance :</label>
+      <input type="text" id="lieuNaissance" name="lieuNaissance">
+
+      <label for="pronoms">Pronoms :</label>
+      <input type="text" id="pronoms" name="pronoms">
+
+      <label for="nationalite">Nationalité :</label>
+      <input type="text" id="nationalite" name="nationalite">
+
+      <label for="occupation">Occupation :</label>
+      <input type="text" id="occupation" name="occupation">
+
+      <label for="statutCivil">Statut Civil:</label>
+      <input type="text" id="statutCivil" name="statutCivil">
+
+      <label for="caractere">Caractère :</label>
+      <input type="text" id="caractere" name="caractere">
+
+      <label for="faceclaim">Faceclaim :</label>
+      <input type="text" id="faceclaim" name="faceclaim">
+
+      <!-- champ du formulaire - menu déroulant permettant de sélectionner une proposition -->
+      <label for="groupe">Groupe :</label>
+      <select id="groupe" name="groupe">
+        <option value="">Choisir le groupe</option>
+        <option value="Groupe1">Groupe 1</option>
+        <option value="Groupe2">Groupe 2</option>
+        <option value="Groupe3">Groupe 3</option>
+        <option value="Groupe4">Groupe 4</option>
+      </select>
+      <!-- fin du champ -->
+
+      <label for="credits">Crédits :</label>
+      <input type="text" id="credits" name="credits">
+
+      <h2>Deuxième partie</h2>
+
+      <!-- champ du formulaire - champ pour texte long -->
+      <label for="histoire">Histoire du personnage :</label>
+      <textarea id="histoire" name="histoire"></textarea>
+      <!-- fin du champ -->
+
+      <h2>Troisième partie</h2>
+
+      <label for="pseudo">Pseudo, prénom :</label>
+      <input type="text" id="pseudo" name="pseudo">
+
+      <label for="pronoms">Pronoms :</label>
+      <input type="text" id="prenom" name="prenom">
+
+      <label for="pays">Pays:</label>
+      <input type="text" id="pays" name="pays">
+
+      <label for="typePersonnage">Type de personnage:</label>
+      <select id="typePersonnage" name="typePersonnage">
+        <option value="">Choisir le type de personnage</option>
+        <option value="inventé">Inventé</option>
+        <option value="éphémère">Ephémère</option>
+        <option value="pré-lien">Pré-lien</option>
+      </select>
+
+      <label for="motFin">Le mot de la fin:</label>
+      <input type="text" id="motFin" name="motFin"><br><br>
+
+      <!-- bouton permettant de générer le code -->
+      <input id="buttonGenerate" type="button" value="Générer" onclick="genererCode()" style="cursor: pointer;">
+      <!-- fin du bouton -->
+    </div>
+  </form>
+  <!-- fin du formulaire -->
+
+  <!-- champ permettant d'afficher le code généré -->
+  <div class="copieCode" style="text-align: center; margin-top: 20px;">
+    <!-- bouton copier -->
+    <button class="buttonCopier" onclick="copierCode()" style="cursor: pointer;">Copier</button>
+    <!-- emplacement du code généré -->
+    <textarea id="resultatCode" readonly style="width:100%; height:300px;"></textarea>
+  </div>
+  <!-- fin du champ -->
+</body>
+
+</html>
+
+
+<!-- Deuxième partie du code : JavaScript permettant de générer le code HTML de la fiche de présentation -->
+<script>
+
+  // fonction avec les variables permettant d'insérer le contenu dans la fichie via le formulaire
+  function genererCode() {
+    var triggerWarnings = document.getElementById('triggerWarnings').value;
+
+    var prenomNom = document.getElementById('prenomNom').value;
+    var citation = document.getElementById('citation').value;
+    var avatarCelebrite = document.getElementById('avatarCelebrite').value;
+    var age = document.getElementById('age').value;
+    var dateNaissance = document.getElementById('dateNaissance').value;
+    var lieuNaissance = document.getElementById('lieuNaissance').value;
+    var pronoms = document.getElementById('pronoms').value;
+    var nationalite = document.getElementById('nationalite').value;
+    var occupation = document.getElementById('occupation').value;
+    var statutCivil = document.getElementById('statutCivil').value;
+    var caractere = document.getElementById('caractere').value;
+
+    var faceclaim = document.getElementById('faceclaim').value;
+    var groupe = document.getElementById('groupe').value;
+    var credits = document.getElementById('credits').value;
+
+    var histoire = document.getElementById('histoire').value;
+
+    var pseudo = document.getElementById('pseudo').value;
+    var pronoms = document.getElementById('pronoms').value;
+    var pays = document.getElementById('pays').value;
+    var typePersonnage = document.getElementById('typePersonnage').value;
+    var motFin = document.getElementById('motFin').value;
+
+
+    // variable contenant la fiche de présentation
+    var codeGenere = `<div class="fiche">      
+<span>${prenomNom}</span>
+<span>${citation}</span>
+
+<div class="firstSection">
+  <img class="avatar" src="${avatarCelebrite}" alt="">
+  <div class="infoPerso">
+    <div class="tw">
+      <span>trigger warnings :</span>
+      <span>${triggerWarnings}</span>
+    </div>
+    <div class="bio">
+      <span>âge :</span> ${age} ans. <span>date et lieu de naissance :</span> ${dateNaissance} à ${lieuNaissance}.
+      <span>pronoms :</span> ${pronoms}. <span>nationalité :</span>
+      ${nationalite}. <span>
+        occupation :</span> ${occupation}. <span>statut
+        civil :
+      </span>
+      ${statutCivil}. <span>caractère :</span> ${caractere}
+    </div>
+    <div class="adminPerso">
+      <span>faceclaim :</span> ${faceclaim}. <span>groupe :</span> ${groupe}. <span>crédits :</span> ${credits}.
+    </div>
+  </div>
+</div>
+<div class="secondSection">
+  ${histoire}
+</div>
+
+<div class="thirdSection">
+  <span>pseudo, prénom :</span> ${pseudo}. <span>pronoms :</span> ${pronoms}. <span>pays :</span> ${pays}. <span>type de
+    personnage :</span> ${typePersonnage}. <span>le mot de la fin :</span> ${motFin}.
+</div>
+</div>`;
+
+    document.getElementById('resultatCode').value = codeGenere;
+  }
+
+  // fonction permettant de copier le code généré
+  function copierCode() {
+    var contenu = document.getElementById('resultatCode').value;
+    navigator.clipboard.writeText(contenu).then(function () {
+      console.log('Le code a été copié avec succès !');
+      alert("Code copié dans le presse-papiers!");
+    }).catch(function (error) {
+      console.error('Erreur lors de la tentative de copie :', error);
+      alert("La copie a échoué.");
+    });
+  }
+</script>
+
+<!-- Troisième partie du code : CSS permettant de styliser le formulaire -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  #formGenerateur {
+    background-color: #f7f7f7;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .box h2 {
+    color: #333;
+  }
+
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="button"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="button"]:hover {
+    background-color: #45a049;
+  }
+
+  .buttonCopier {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .buttonCopier:hover {
+    background-color: #005f73;
+  }
+</style>
