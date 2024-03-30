@@ -11,10 +11,8 @@
 <body>
   <!-- début du formulaire -->
   <form id="formGenerateur">
-    <center>
-      <h1>Formulaire de présentation</h1>
-      <hr style="margin: 20px 0;">
-    </center>
+    <h1>Formulaire de présentation</h1>
+    <hr style="margin: 20px 0;">
 
     <div class="box" style="padding: 20px;">
 
@@ -44,9 +42,6 @@
 
       <label for="lieuNaissance">Lieu de Naissance :</label>
       <input type="text" id="lieuNaissance" name="lieuNaissance">
-
-      <label for="pronoms">Pronoms :</label>
-      <input type="text" id="pronoms" name="pronoms">
 
       <label for="nationalite">Nationalité :</label>
       <input type="text" id="nationalite" name="nationalite">
@@ -90,7 +85,7 @@
       <input type="text" id="pseudo" name="pseudo">
 
       <label for="pronoms">Pronoms :</label>
-      <input type="text" id="prenom" name="prenom">
+      <input type="text" id="pronoms" name="pronoms">
 
       <label for="pays">Pays:</label>
       <input type="text" id="pays" name="pays">
@@ -139,7 +134,6 @@
     var age = document.getElementById('age').value;
     var dateNaissance = document.getElementById('dateNaissance').value;
     var lieuNaissance = document.getElementById('lieuNaissance').value;
-    var pronoms = document.getElementById('pronoms').value;
     var nationalite = document.getElementById('nationalite').value;
     var occupation = document.getElementById('occupation').value;
     var statutCivil = document.getElementById('statutCivil').value;
@@ -172,7 +166,7 @@
     </div>
     <div class="bio">
       <span>âge :</span> ${age} ans. <span>date et lieu de naissance :</span> ${dateNaissance} à ${lieuNaissance}.
-      <span>pronoms :</span> ${pronoms}. <span>nationalité :</span>
+      <span>nationalité :</span>
       ${nationalite}. <span>
         occupation :</span> ${occupation}. <span>statut
         civil :
